@@ -29,7 +29,7 @@
         return data;
     }
 
-    getWeather().then((data) => {
+    getWeather(false).then((data) => {
         populateNow(data.properties.periods[0]);
 
         const nextElements = $$('.next');
