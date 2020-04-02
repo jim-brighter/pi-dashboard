@@ -2,11 +2,18 @@
 
 * {
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
 }
 
 .centered {
     text-align: center;
     vertical-align: center;
+}
+
+#weather {
+    color: #fafafa;
+    text-shadow: 0px 0px 4px black;
 }
 
 .w-100 {
@@ -17,9 +24,18 @@
     height: 100%;
 }
 
+.pv-4 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.ph-2 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
 .right-now-container {
     width: 100%;
-    height: 100%;
     display: grid;
     grid-auto-flow: row;
     align-items: center;
@@ -29,9 +45,28 @@
 
 .next-container {
     width: 100%;
-    height: 100%;
     display: grid;
     grid-auto-flow: row;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    border-top: 1px solid #fafafa;
+}
+
+.next {
+    padding-bottom: 2rem;
+}
+
+.background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.rain-background {
+    background-image: url("assets/wallpapers/rain.jpg");
+
+}
+
+.cloudy-background {
+    background-image: url("assets/wallpapers/cloudy.jpg");
 }

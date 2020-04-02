@@ -46,6 +46,13 @@
         $('.right-now .temperature').textContent = period.temperature + '°';
         $('.right-now .shortForecast').textContent = period.shortForecast;
         $('.right-now .shortForecast').title = period.detailedForecast;
+
+        if(period.shortForecast.toLowerCase().includes('rain')) {
+            $('#weather').classList.add('rain-background');
+        }
+        else if (period.shortForecast.toLowerCase().includes('cloudy')) {
+            $('#weather').classList.add('cloudy-background');
+        }
     }
 
     const populateNext = (element, period) => {
@@ -56,20 +63,3 @@
         $(`#${elemId} .shortForecast`).title = period.detailedForecast;
     }
 })();
-
-//             {
-//                 "number": 1,
-//                 "name": "Tonight",
-//                 "startTime": "2020-03-31T22:00:00-04:00",
-//                 "endTime": "2020-04-01T06:00:00-04:00",
-//                 "isDaytime": false,
-//                 "temperature": 40,
-//                 "temperatureUnit": "F",
-//                 "temperatureTrend": null,
-//                 "windSpeed": "10 mph",
-//                 "windDirection": "NE",
-//                 "icon": "https://api.weather.gov/icons/land/night/rain,90/rain,80?size=medium",
-//                 "shortForecast": "Occasional Light Rain",
-//                 "detailedForecast": "Occasional rain before 2am, then isolated rain showers between 2am and 5am. Cloudy, with a low around 40. Northea
-// st wind around 10 mph. Chance of precipitation is 90%. New rainfall amounts less than a tenth of an inch possible."
-//             }
