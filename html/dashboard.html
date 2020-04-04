@@ -2,12 +2,16 @@
 <html class="h-100">
     <head>
         <title>Dashboard</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/backgrounds.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body class="h-100">
-        <div id="weather" class="h-100 ph-2 background">
+        <div class="h-100 w-100 background-container">
+            <div id="weather-background" class="h-100 w-100 background"></div>
+        </div>
+        <div id="weather" class="h-100 ph-2">
             <div class="right-now-container pv-4">
                 <div class="centered w-100 right-now">
                     <h1 class="name"></h1>
@@ -33,6 +37,6 @@
                 </div>
             </div>
         </div>
-        <script src="script.js"></script>
+        <script type="module" src="js/script.js"></script>
     </body>
 </html>

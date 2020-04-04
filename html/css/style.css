@@ -14,6 +14,7 @@
 #weather {
     color: #fafafa;
     text-shadow: 0px 0px 4px black;
+    z-index: 100;
 }
 
 .w-100 {
@@ -54,19 +55,4 @@
 
 .next {
     padding-bottom: 2rem;
-}
-
-.background {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.rain-background {
-    background-image: url("assets/wallpapers/rain.jpg");
-
-}
-
-.cloudy-background {
-    background-image: url("assets/wallpapers/cloudy.jpg");
 }

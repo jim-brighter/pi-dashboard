@@ -1,0 +1,27 @@
+.background-container {
+    background-color: black;
+    position: absolute;
+    z-index: -100;
+}
+
+.background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.6;
+    position: absolute;
+    z-index: -10;
+}
+
+.rain-background {
+    background-image: url("../assets/wallpapers/rain.jpg");
+
+}
+
+.cloudy-background {
+    background-image: url("../assets/wallpapers/cloudy.jpg");
+}
+
+.sunny-background {
+    background-image: url("../assets/wallpapers/sunny.jpg");
+}
