@@ -1,36 +1,8 @@
-import * as mocks from './mocks.js';
+import * as eventHandlers from './modules/eventHandlers.js';
+import { $, $$ } from './modules/selectors.js';
+import * as weatherService from './modules/weatherService.js';
 
-const CALL_API = false;
-
-const $ = (selector) => {
-    return document.querySelector(selector);
-}
-
-const $$ = (selector) => {
-    return Array.prototype.slice.call(document.querySelectorAll(selector));
-}
-
-const getWeather = async () => {
-
-    let data;
-
-    if (CALL_API) {
-        console.log('Calling weather.gov API');
-        let response = await fetch('https://api.weather.gov/gridpoints/LWX/92,77/forecast', {
-            headers: {
-                'Accept': 'application/geo+json',
-                'User-Agent': '(jim-raspi-dashboard, jbrighter92@gmail.com)'
-            }
-        });
-        data = await response.json();
-    } else {
-        console.log('Using Mock Response');
-        data = mocks.sunnyResponse;
-    }
-    return data;
-}
-
-getWeather().then((data) => {
+weatherService.getWeather().then((data) => {
     populateNow(data.properties.periods[0]);
 
     const nextElements = $$('.next');
@@ -66,3 +38,12 @@ const populateNext = (element, period) => {
     $(`#${elemId} .shortForecast`).textContent = period.shortForecast;
     $(`#${elemId} .shortForecast`).title = period.detailedForecast;
 }
+
+document.addEventListener('click', (event) => {
+    if (event.target.closest('.next') || event.target.closest('.right-now')) {
+        eventHandlers.weatherDetails(event.target.parentNode);
+    }
+    else if (event.target.matches('.modal-close') || event.target.matches('.modal')) {
+        eventHandlers.closeModal();
+    }
+}, false);

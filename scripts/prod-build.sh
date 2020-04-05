@@ -2,7 +2,7 @@
 
 set -ex
 
-sed -i -e 's/\( CALL_API = *\)[^; ]*/\1true/' html/js/script.js
+sed -i -e 's/\( CALL_API = *\)[^; ]*/\1true/' html/js/modules/weatherService.js
 
 docker pull nginx:1.17-alpine
 
