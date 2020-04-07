@@ -1,7 +1,5 @@
-import { $, $$ } from './selectors.js'
-
-const CELSIUS = '°C';
-const FAHRENHEIT = '°F';
+import { $, $$ } from './selectors.js';
+import { CELSIUS, FAHRENHEIT } from './constants.js';
 
 const weatherDetails = (parentNode) => {
 

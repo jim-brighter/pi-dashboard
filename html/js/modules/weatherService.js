@@ -1,6 +1,5 @@
 import * as mocks from './mocks.js';
-
-const CALL_API = false;
+import { CALL_API } from './constants.js';
 
 const getWeather = async () => {
 

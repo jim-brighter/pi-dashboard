@@ -1,6 +1,9 @@
 import * as eventHandlers from './modules/eventHandlers.js';
 import { $, $$ } from './modules/selectors.js';
 import * as weatherService from './modules/weatherService.js';
+import * as constants from './modules/constants.js';
+
+$('.temp-button').textContent = constants.CELSIUS;
 
 weatherService.getWeather().then((data) => {
     populateNow(data.properties.periods[0]);
