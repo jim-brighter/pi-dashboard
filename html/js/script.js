@@ -19,6 +19,7 @@ const populateNow = (period) => {
     $('.right-now .temperature').textContent = period.temperature + '°';
     $('.right-now .shortForecast').textContent = period.shortForecast;
     $('.right-now .shortForecast').title = period.detailedForecast;
+    $('.right-now .icon img').src = period.icon;
 
     const shortForecastLowerCase = period.shortForecast.toLowerCase();
 
@@ -42,6 +43,7 @@ const populateNext = (element, period) => {
     $(`#${elemId} .temperature`).textContent = period.temperature + '°';
     $(`#${elemId} .shortForecast`).textContent = period.shortForecast;
     $(`#${elemId} .shortForecast`).title = period.detailedForecast;
+    $(`#${elemId} .icon img`).src = period.icon;
 }
 
 document.addEventListener('click', (event) => {
@@ -50,5 +52,8 @@ document.addEventListener('click', (event) => {
     }
     else if (event.target.matches('.modal-close') || event.target.matches('.modal')) {
         eventHandlers.closeModal();
+    }
+    else if (event.target.matches('.temp-button')) {
+        eventHandlers.convertTemperature();
     }
 }, false);

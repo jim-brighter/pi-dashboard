@@ -1,5 +1,8 @@
 import { $, $$ } from './selectors.js'
 
+const CELSIUS = '°C';
+const FAHRENHEIT = '°F';
+
 const weatherDetails = (parentNode) => {
 
     const weatherData = {};
@@ -8,11 +11,13 @@ const weatherDetails = (parentNode) => {
     weatherData.temperature = parentNode.querySelector('.temperature').textContent;
     weatherData.shortForecast = parentNode.querySelector('.shortForecast').textContent;
     weatherData.detailedForecast = parentNode.querySelector('.shortForecast').title;
+    weatherData.iconLink = parentNode.querySelector('.icon img').src;
 
     $('.modal-content .name-modal').textContent = weatherData.name;
     $('.modal-content .temperature-modal').textContent = weatherData.temperature;
     $('.modal-content .shortForecast-modal').textContent = weatherData.shortForecast;
     $('.modal-content .detailedForecast-modal').textContent = weatherData.detailedForecast;
+    $('.modal-content .icon-modal img').src = weatherData.iconLink;
 
     $('.modal').classList.add('show');
     $('.modal .modal-content').classList.add('show');
@@ -28,4 +33,25 @@ const removeModalBackground = (e) => {
     $('.modal .modal-content').removeEventListener('transitionend', removeModalBackground); // remove the listener as soon as background is gone
 }
 
-export { weatherDetails, closeModal };
+const convertTemperature = () => {
+    const buttonText = $('.temp-button').textContent;
+
+    if (buttonText === CELSIUS) {
+        const temps = $$('.temperature');
+        for (const temp of temps) {
+            temp.textContent = Math.round((parseInt(temp.textContent) - 32) * 5/9) + '°';
+        }
+
+        $('.temp-button').textContent = FAHRENHEIT;
+    }
+    else if (buttonText === FAHRENHEIT) {
+        const temps = $$('.temperature');
+        for (const temp of temps) {
+            temp.textContent = Math.round((parseInt(temp.textContent) * 9/5) + 32) + '°';
+        }
+
+        $('.temp-button').textContent = CELSIUS;
+    }
+}
+
+export { weatherDetails, closeModal, convertTemperature };
