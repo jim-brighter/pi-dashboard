@@ -20,13 +20,18 @@ const populateNow = (period) => {
     $('.right-now .shortForecast').textContent = period.shortForecast;
     $('.right-now .shortForecast').title = period.detailedForecast;
 
-    if(period.shortForecast.toLowerCase().includes('rain')) {
+    const shortForecastLowerCase = period.shortForecast.toLowerCase();
+
+    if (shortForecastLowerCase.includes('thunderstorm')) {
+        $('#weather-background').classList.add('thunderstorm-background');
+    }
+    if (shortForecastLowerCase.includes('rain') || shortForecastLowerCase.includes('showers')) {
         $('#weather-background').classList.add('rain-background');
     }
-    else if (period.shortForecast.toLowerCase().includes('cloudy')) {
+    else if (shortForecastLowerCase.includes('cloudy')) {
         $('#weather-background').classList.add('cloudy-background');
     }
-    else if (period.shortForecast.toLowerCase().includes('sunny')) {
+    else if (shortForecastLowerCase.includes('sunny')) {
         $('#weather-background').classList.add('sunny-background');
     }
 }
