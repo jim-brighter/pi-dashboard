@@ -6,7 +6,7 @@ docker pull nginx:1.17-alpine
 
 docker build -f Dockerfile -t jimbrighter/pi-dashboard:arm .
 
-if [ -n $(docker ps -a | grep pi-dashboard | awk '{print $1}') ]; then
+if [ -n "$(docker ps -a | grep pi-dashboard | awk '{print $1}')" ]; then
     echo "stopping container..."
     docker stop pi-dashboard
 fi
