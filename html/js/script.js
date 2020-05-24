@@ -29,7 +29,9 @@ const populateNow = (period) => {
     if (shortForecastLowerCase.includes('thunderstorm')) {
         $('#weather-background').classList.add('thunderstorm-background');
     }
-    if (shortForecastLowerCase.includes('rain') || shortForecastLowerCase.includes('showers')) {
+    if (shortForecastLowerCase.includes('rain')
+    || shortForecastLowerCase.includes('showers')
+    || shortForecastLowerCase.includes('drizzle')) {
         $('#weather-background').classList.add('rain-background');
     }
     else if (shortForecastLowerCase.includes('cloudy')) {

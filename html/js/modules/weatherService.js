@@ -7,7 +7,7 @@ const getWeather = async () => {
 
     if (CALL_API) {
         console.log('Calling weather.gov API');
-        let response = await fetch('https://api.weather.gov/gridpoints/LWX/92,77/forecast', {
+        let response = await fetch('https://api.weather.gov/gridpoints/LWX/84,71/forecast', {
             headers: {
                 'Accept': 'application/geo+json',
                 'User-Agent': '(jim-raspi-dashboard, jbrighter92@gmail.com)'
