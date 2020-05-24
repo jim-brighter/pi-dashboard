@@ -5,11 +5,11 @@ const weatherDetails = (parentNode) => {
 
     const weatherData = {};
 
-    weatherData.name = parentNode.querySelector('.name').textContent;
-    weatherData.temperature = parentNode.querySelector('.temperature').textContent;
-    weatherData.shortForecast = parentNode.querySelector('.shortForecast').textContent;
-    weatherData.detailedForecast = parentNode.querySelector('.shortForecast').title;
-    weatherData.iconLink = parentNode.querySelector('.icon img').src;
+    weatherData.name = $('.name', parentNode).textContent;
+    weatherData.temperature = $('.temperature', parentNode).textContent;
+    weatherData.shortForecast = $('.shortForecast', parentNode).textContent;
+    weatherData.detailedForecast = $('.shortForecast', parentNode).title;
+    weatherData.iconLink = $('.icon img', parentNode).src;
 
     $('.modal-content .name-modal').textContent = weatherData.name;
     $('.modal-content .temperature-modal').textContent = weatherData.temperature;
