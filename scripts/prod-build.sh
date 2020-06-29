@@ -11,6 +11,6 @@ if [ -n "$(docker ps -a | grep pi-dashboard | awk '{print $1}')" ]; then
     docker stop pi-dashboard
 fi
 
-docker run -d --name pi-dashboard --rm -p 9001:80 jimbrighter/pi-dashboard:arm
+docker run -d --name pi-dashboard --rm -p 9001:80 --restart unless-stopped jimbrighter/pi-dashboard:arm
 
 docker push jimbrighter/pi-dashboard:arm
