@@ -17,6 +17,10 @@ const weatherDetails = (parentNode) => {
     $('.modal-content .detailedForecast-modal').textContent = weatherData.detailedForecast;
     $('.modal-content .icon-modal img').src = weatherData.iconLink;
 
+    showModal();
+}
+
+const showModal = () => {
     $('.modal').classList.add('show');
     $('.modal .modal-content').classList.add('show');
 }
@@ -52,4 +56,4 @@ const convertTemperature = () => {
     }
 }
 
-export { weatherDetails, closeModal, convertTemperature };
+export { weatherDetails, showModal, closeModal, convertTemperature };
