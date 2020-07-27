@@ -2,11 +2,7 @@
 
 set -ex
 
-if [ "$OSTYPE" = "msys" ]; then
-    host_filepath="c:/Users/jimbr/projects/personal/pi-dashboard"
-elif [[ "$OSTYPE" = *"darwin"* ]]; then
-    host_filepath="/Users/jim/projects/personal/pi-dashboard"
-fi
+host_filepath="$HOME/projects/personal/pi-dashboard"
 
 echo "Host file path: $host_filepath"
 
