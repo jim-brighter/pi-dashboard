@@ -21,7 +21,7 @@ const getWeather = async () => {
         }
     } else {
         console.log('Using Mock Response');
-        data = mocks.sunnyResponse;
+        data = mocks.rainResponse;
     }
     return data;
 }

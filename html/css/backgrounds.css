@@ -13,19 +13,23 @@
     z-index: -10;
 }
 
-.rain-background {
+.rain_background {
     background-image: url("../assets/wallpapers/rain.jpg");
 
 }
 
-.cloudy-background {
+.cloudy_background {
     background-image: url("../assets/wallpapers/cloudy.jpg");
 }
 
-.sunny-background {
+.sunny_background {
     background-image: url("../assets/wallpapers/sunny.jpg");
 }
 
-.thunderstorm-background {
+.thunderstorm_background {
     background-image: url("../assets/wallpapers/thunderstorm.jpg");
+}
+
+.snow_background {
+    background-image: url("../assets/wallpapers/snow.jpg");
 }

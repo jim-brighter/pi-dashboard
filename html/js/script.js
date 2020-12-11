@@ -5,6 +5,14 @@ import * as constants from './modules/constants.js';
 
 $('.temp-button').textContent = constants.CELSIUS;
 
+const weatherBackgrounds = {
+    snow_background: ['snow', 'flurry', 'flurries'],
+    thunderstorm_background: ['thunderstorm'],
+    rain_background: ['rain', 'showers', 'drizzle'],
+    cloudy_background: ['cloudy', 'clouds'],
+    sunny_background: ['sunny', 'sun', 'clear'],
+};
+
 weatherService.getWeather().then((data) => {
     populateNow(data.properties.periods[0]);
 
@@ -26,19 +34,11 @@ const populateNow = (period) => {
 
     const shortForecastLowerCase = period.shortForecast.toLowerCase();
 
-    if (shortForecastLowerCase.includes('thunderstorm')) {
-        $('#weather-background').classList.add('thunderstorm-background');
-    }
-    if (shortForecastLowerCase.includes('rain')
-    || shortForecastLowerCase.includes('showers')
-    || shortForecastLowerCase.includes('drizzle')) {
-        $('#weather-background').classList.add('rain-background');
-    }
-    else if (shortForecastLowerCase.includes('cloudy')) {
-        $('#weather-background').classList.add('cloudy-background');
-    }
-    else if (shortForecastLowerCase.includes('sunny')) {
-        $('#weather-background').classList.add('sunny-background');
+    for (const backgroundName in weatherBackgrounds) {
+        if (weatherBackgrounds[backgroundName].some(weather => shortForecastLowerCase.includes(weather))) {
+            $('#weather-background').classList.add(backgroundName);
+            break;
+        }
     }
 }
 
