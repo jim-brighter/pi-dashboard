@@ -59,3 +59,14 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.modal-img-details {
+    display: grid;
+    grid-auto-flow: row;
+    align-items: left;
+    grid-template-columns: auto auto;
+}
+
+.detailedForecast-modal {
+    padding-left: 1rem;
+}
