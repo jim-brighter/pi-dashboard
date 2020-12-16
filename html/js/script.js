@@ -6,7 +6,7 @@ import * as constants from './modules/constants.js';
 $('.temp-button').textContent = constants.CELSIUS;
 
 const weatherBackgrounds = {
-    snow_background: ['snow', 'flurry', 'flurries'],
+    snow_background: ['snow', 'flurry', 'flurries', 'sleet'],
     thunderstorm_background: ['thunderstorm'],
     rain_background: ['rain', 'showers', 'drizzle'],
     cloudy_background: ['cloudy', 'clouds'],
