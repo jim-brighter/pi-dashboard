@@ -3,19 +3,11 @@ import { CELSIUS, FAHRENHEIT } from './constants.js';
 
 const weatherDetails = (parentNode) => {
 
-    const weatherData = {};
-
-    weatherData.name = $('.name', parentNode).textContent;
-    weatherData.temperature = $('.temperature', parentNode).textContent;
-    weatherData.shortForecast = $('.shortForecast', parentNode).textContent;
-    weatherData.detailedForecast = $('.shortForecast', parentNode).title;
-    weatherData.iconLink = $('.icon img', parentNode).src;
-
-    $('.modal-content .name-modal').textContent = weatherData.name;
-    $('.modal-content .temperature-modal').textContent = weatherData.temperature;
-    $('.modal-content .shortForecast-modal').textContent = weatherData.shortForecast;
-    $('.modal-content .detailedForecast-modal').textContent = weatherData.detailedForecast;
-    $('.modal-content .icon-modal img').src = weatherData.iconLink;
+    $('.modal-content .name-modal').textContent = $('.name', parentNode).textContent.replace('-', '').trim();
+    $('.modal-content .temperature-modal').textContent = $('.temperature', parentNode).textContent;
+    $('.modal-content .shortForecast-modal').textContent = $('.shortForecast', parentNode).textContent;
+    $('.modal-content .detailedForecast-modal').textContent = $('.shortForecast', parentNode).title;
+    $('.modal-content .icon-modal img').src = $('.icon', parentNode).src;
 
     showModal();
 }

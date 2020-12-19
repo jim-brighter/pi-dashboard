@@ -16,12 +16,19 @@ const weatherBackgrounds = {
 weatherService.getWeather().then((data) => {
     populateNow(data.properties.periods[0]);
 
-    const nextElements = $$('.next');
-    for (const element of nextElements) {
-        if (!element.id) {
-            continue;
-        }
-        populateNext(element, data.properties.periods[element.id.substring(element.id.length - 1)]);
+    const nextTable = $('.next-table');
+
+    for (let i = 1; i < data.properties.periods.length; i++) {
+
+        const period = data.properties.periods[i];
+
+        const nextRow = document.createElement('tr');
+        nextRow.id = `next-${i}`;
+        nextRow.classList.add('next');
+
+        buildRow(nextRow, period)
+
+        nextTable.appendChild(nextRow);
     }
 });
 
@@ -30,7 +37,7 @@ const populateNow = (period) => {
     $('.right-now .temperature').textContent = period.temperature + '°';
     $('.right-now .shortForecast').textContent = period.shortForecast;
     $('.right-now .shortForecast').title = period.detailedForecast;
-    $('.right-now .icon img').src = period.icon;
+    $('.right-now .icon').src = period.icon;
 
     const shortForecastLowerCase = period.shortForecast.toLowerCase();
 
@@ -42,13 +49,29 @@ const populateNow = (period) => {
     }
 }
 
-const populateNext = (element, period) => {
-    const elemId = element.id;
-    $(`#${elemId} .name`).textContent = period.name;
-    $(`#${elemId} .temperature`).textContent = period.temperature + '°';
-    $(`#${elemId} .shortForecast`).textContent = period.shortForecast;
-    $(`#${elemId} .shortForecast`).title = period.detailedForecast;
-    $(`#${elemId} .icon img`).src = period.icon;
+const buildRow = (nextRow, period) => {
+
+    const name = document.createElement('td');
+    const temperature = document.createElement('td');
+    const shortForecast = document.createElement('td');
+    const img = document.createElement('span');
+
+    name.classList.add('name');
+    temperature.classList.add('temperature');
+    shortForecast.classList.add('shortForecast');
+    img.classList.add('icon');
+
+    name.innerHTML = `${period.name}`;
+    temperature.innerHTML = `${period.temperature}°`;
+    shortForecast.innerHTML = `${period.shortForecast}`;
+    shortForecast.title = period.detailedForecast;
+    img.src = period.icon;
+
+    nextRow.appendChild(name);
+    nextRow.appendChild(shortForecast);
+    nextRow.appendChild(img);
+    nextRow.appendChild(temperature);
+
 }
 
 document.addEventListener('click', (event) => {

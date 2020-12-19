@@ -40,8 +40,16 @@
     border-top: 1px solid #fafafa;
 }
 
-.next {
-    padding-bottom: 2rem;
+.next-table {
+    text-align: left;
+}
+
+.next-table>tr {
+    font-size: 16pt;
+}
+
+.next>.temperature {
+    float: right;
 }
 
 .next, .right-now {
