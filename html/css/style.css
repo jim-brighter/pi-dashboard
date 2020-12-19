@@ -40,12 +40,17 @@
     border-top: 1px solid #fafafa;
 }
 
-.next-table {
+.next-table, .next-table>* {
     text-align: left;
+    border-collapse: collapse;
 }
 
 .next-table>tr {
     font-size: 16pt;
+}
+
+.next-table>tr:hover {
+    background-color: rgba(255,255,255,0.3);
 }
 
 .next>.temperature {
