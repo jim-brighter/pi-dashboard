@@ -11,6 +11,7 @@ const weatherBackgrounds = {
     rain_background: ['rain', 'showers', 'drizzle'],
     cloudy_background: ['cloudy', 'clouds'],
     sunny_background: ['sunny', 'sun', 'clear'],
+    fog_background: ['fog', 'foggy'],
 };
 
 weatherService.getWeather().then((data) => {
