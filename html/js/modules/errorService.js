@@ -8,8 +8,6 @@ const handleError = (err) => {
     $('.modal-content .detailedForecast-modal').textContent = 'Please try again later';
     $('.modal-content .icon-modal img').src = '';
 
-    console.error(err);
-
     eventHandlers.showModal();
 }
 

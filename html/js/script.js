@@ -15,6 +15,11 @@ const weatherBackgrounds = {
 };
 
 weatherService.getWeather().then((data) => {
+
+    if (data === undefined) {
+        return;
+    }
+
     populateNow(data.properties.periods[0]);
 
     const nextTable = $('.next-table');
