@@ -15,6 +15,10 @@ const getWeather = async () => {
                     'User-Agent': '(jim-raspi-dashboard, jbrighter92@gmail.com)'
                 }
             });
+
+            if (!response.ok) {
+                throw `Got status ${response.status} from weather.gov`;
+            }
             data = await response.json();
         } catch(err) {
             errorService.handleError(err);
