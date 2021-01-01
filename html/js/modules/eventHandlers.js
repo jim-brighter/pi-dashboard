@@ -30,21 +30,21 @@ const removeModalBackground = (e) => {
 const convertTemperature = () => {
     const buttonText = $('.temp-button').textContent;
 
-    if (buttonText === CELSIUS) {
+    if (buttonText === FAHRENHEIT) {
         const temps = $$('.temperature');
         for (const temp of temps) {
             temp.textContent = Math.round((parseInt(temp.textContent) - 32) * 5/9) + '°';
         }
 
-        $('.temp-button').textContent = FAHRENHEIT;
+        $('.temp-button').textContent = CELSIUS;
     }
-    else if (buttonText === FAHRENHEIT) {
+    else if (buttonText === CELSIUS) {
         const temps = $$('.temperature');
         for (const temp of temps) {
             temp.textContent = Math.round((parseInt(temp.textContent) * 9/5) + 32) + '°';
         }
 
-        $('.temp-button').textContent = CELSIUS;
+        $('.temp-button').textContent = FAHRENHEIT;
     }
 }
 

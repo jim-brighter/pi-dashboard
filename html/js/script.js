@@ -3,7 +3,7 @@ import { $, $$ } from './modules/selectors.js';
 import * as weatherService from './modules/weatherService.js';
 import * as constants from './modules/constants.js';
 
-$('.temp-button').textContent = constants.CELSIUS;
+$('.temp-button').textContent = constants.FAHRENHEIT;
 
 const weatherBackgrounds = {
     snow_background: ['snow', 'flurry', 'flurries', 'sleet'],
