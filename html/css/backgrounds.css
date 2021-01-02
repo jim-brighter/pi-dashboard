@@ -37,3 +37,7 @@
 .fog_background {
     background-image: url("../assets/wallpapers/fog.jpg");
 }
+
+.clear_background {
+    background-image: url("../assets/wallpapers/clear.jpg");
+}
